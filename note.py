@@ -17,12 +17,19 @@ def open_files():
         text_fild.delete('1.0', END)
         text_fild.insert('1.0', open(file_path, encoding='utf-8').read())
 
+def save_files():
+    file_path = filedialog.asksaveasfilename(filetypes=(('Текстовые документы(*.txt)','*.txt'),('Все файлы', '*.*')))        
+    f = open(file_path, 'w', encoding='utf-8')
+    text = text_fild.get('1.0', END)
+    f.write(text)
+    f.close()
+
 main_menu = Menu(root)
     
 
 file_menu = Menu(main_menu, tearoff=0)
 file_menu.add_command(label='Открыть', command=open_files)
-file_menu.add_command(label='Сохранить')
+file_menu.add_command(label='Сохранить', command=save_files)
 file_menu.add_separator()
 file_menu.add_command(label='Закрыть', command=note_exit)
 
