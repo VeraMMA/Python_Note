@@ -12,13 +12,13 @@ def note_exit():
         root.destroy()
 
 def open_files():
-    file_path = filedialog.askopenfilename(title='Выбрать файл', filetypes=(('Текстовые документы(*.txt)','*.txt'),('Все файлы', '*.*')))        
+    file_path = filedialog.askopenfilename(title='Выбрать файл', filetypes=(('Текстовые документы(*.json)','*.json'),('Все файлы', '*.*')))        
     if file_path:
         text_fild.delete('1.0', END)
         text_fild.insert('1.0', open(file_path, encoding='utf-8').read())
 
 def save_files():
-    file_path = filedialog.asksaveasfilename(filetypes=(('Текстовые документы(*.txt)','*.txt'),('Все файлы', '*.*')))        
+    file_path = filedialog.asksaveasfilename(filetypes=(('Текстовые документы(*.json)','*.json'),('Все файлы', '*.*')))        
     f = open(file_path, 'w', encoding='utf-8')
     text = text_fild.get('1.0', END)
     f.write(text)
