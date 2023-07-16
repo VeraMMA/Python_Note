@@ -1,16 +1,23 @@
 from tkinter import *
+from tkinter import messagebox 
 
 root = Tk()
 root.title('Заметки')
 root.geometry('600x700')
 
+def note_exit():
+    answer = messagebox.askokcancel('Выход','Выйти из программы?')
+    if answer:
+        root.destroy()
+
 main_menu = Menu(root)
+    
 
 file_menu = Menu(main_menu, tearoff=0)
 file_menu.add_command(label='Открыть')
 file_menu.add_command(label='Сохранить')
 file_menu.add_separator()
-file_menu.add_command(label='Закрыть')
+file_menu.add_command(label='Закрыть', command=note_exit)
 
 root.config(menu=file_menu)
 
